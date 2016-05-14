@@ -6,6 +6,17 @@
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<!-- <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider> -->
 		<class>entities.CivilianRequest</class>
+		<class>entities.Address</class>
+		<class>entities.Band</class>
+		<class>entities.UnitLeader</class>
+		<class>entities.Ensemble</class>
+		<class>entities.BookingStatus</class>
+		<class>entities.MilitaryRequest</class>
+		<class>entities.RequestingOfficial</class>
+		<class>entities.DateOfEvent</class>
+		<class>entities.RequestingCommand</class>
+		<class>entities.DateOfRequest</class>
+		<class>entities.PointOfContact</class>
 
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/mydb" />
