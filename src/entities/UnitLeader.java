@@ -22,4 +22,31 @@ private List<Ensemble> ensembles;
 @ManyToOne
 @JoinColumn(name = "band_id")
 private Band band;
+public int getId() {
+	return id;
+}
+public void setId(int id) {
+	this.id = id;
+}
+public List<Ensemble> getEnsembles() {
+	return ensembles;
+}
+public void setEnsembles(List<Ensemble> ensembles) {
+	this.ensembles = ensembles;
+}
+public Band getBand() {
+	return band;
+}
+public void setBand(Band band) {
+	this.band = band;
+}
+@Override
+public String toString() {
+	return "UnitLeader [id=" + id + ", ensembles=" + ensembles + ", band=" + band + "]";
+}
+public UnitLeader() {
+	super();
+	// TODO Auto-generated constructor stub
+}
+
 }

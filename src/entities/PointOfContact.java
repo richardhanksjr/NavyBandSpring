@@ -15,6 +15,13 @@ public class PointOfContact {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	private String password;
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	private String rank;
 	private String name;
 	private String title;
