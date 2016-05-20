@@ -3,6 +3,7 @@ package entities;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,13 +16,13 @@ public class DateOfRequest {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private int year;
-	private int month;
-	private int day;
-	@OneToMany(mappedBy = "dateOfRequest")
+	private String year;
+	private String month;
+	private String day;
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "dateOfRequest")
 	private List<MilitaryRequest> militaryRequests;
 	
-	@OneToMany(mappedBy = "dateOfRequest")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "dateOfRequest")
 	private List<CivilianRequest> civilianRequests;
 
 	public DateOfRequest() {
@@ -29,11 +30,7 @@ public class DateOfRequest {
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public String toString() {
-		return "DateOfRequest [id=" + id + ", year=" + year + ", month=" + month + ", day=" + day
-				+ ", militaryRequests=" + militaryRequests + ", civilianRequests=" + civilianRequests + "]";
-	}
+
 
 	public int getId() {
 		return id;
@@ -43,27 +40,29 @@ public class DateOfRequest {
 		this.id = id;
 	}
 
-	public int getYear() {
+
+
+	public String getYear() {
 		return year;
 	}
 
-	public void setYear(int year) {
+	public void setYear(String year) {
 		this.year = year;
 	}
 
-	public int getMonth() {
+	public String getMonth() {
 		return month;
 	}
 
-	public void setMonth(int month) {
+	public void setMonth(String month) {
 		this.month = month;
 	}
 
-	public int getDay() {
+	public String getDay() {
 		return day;
 	}
 
-	public void setDay(int day) {
+	public void setDay(String day) {
 		this.day = day;
 	}
 

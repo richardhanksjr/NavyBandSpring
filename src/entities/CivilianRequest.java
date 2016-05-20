@@ -36,6 +36,20 @@ private Ensemble ensemble;
 private String description;
 
 @ManyToOne
+@JoinColumn(name = "point_of_contact_id")
+private PointOfContact pointOfContact;
+
+public PointOfContact getPointOfContact() {
+	return pointOfContact;
+}
+
+
+public void setPointOfContact(PointOfContact pointOfContact) {
+	this.pointOfContact = pointOfContact;
+}
+
+
+@ManyToOne
 @JoinColumn(name = "booking_status_id")
 private BookingStatus bookingStatus;
 
@@ -43,13 +57,13 @@ private BookingStatus bookingStatus;
 private String afterAction;
 
 @Column(name = "moveable_date")
-private boolean moveableDate;
+private Boolean moveableDate;
 
 @Column(name = "expected_attendance")
-private int expectedAttendance;
+private Integer expectedAttendance;
 
 @Column(name = "other_units")
-private boolean otherUnits;
+private Boolean otherUnits;
 
 @Column(name = "charges_description")
 private String chargesDescription;
@@ -58,193 +72,236 @@ private String chargesDescription;
 private String fundraisingDescription;
 
 @Column(name = "open_admission")
-private boolean openAdmission;
+private Boolean openAdmission;
 
 @Column(name = "civic_organization")
-private boolean civicOrganization;
+private Boolean civicOrganization;
 
 @Column(name = "backing_of_gov")
-private boolean backingOfGovernment;
+private Boolean backingOfGovernment;
 
-@Column(name = "organization_exclusive")
-private boolean ogranizationExclusive;
+@Column(name = "oganization_exclusive")
+private Boolean ogranizationExclusive;
 
 @Column(name = "fund_meal")
-private boolean fundMeal;
+private Boolean fundMeal;
 
 @Column(name = "fund_trans")
-private boolean fundTrans;
+private Boolean fundTrans;
 
 @Column(name = "provide_telephone")
-private boolean provideTelephone;
+private Boolean provideTelephone;
+
 
 public int getId() {
 	return id;
 }
 
+
 public void setId(int id) {
 	this.id = id;
 }
+
 
 public String getTitle() {
 	return title;
 }
 
+
 public void setTitle(String title) {
 	this.title = title;
 }
+
 
 public Address getAddress() {
 	return address;
 }
 
+
 public void setAddress(Address address) {
 	this.address = address;
 }
 
-public DateOfRequest getDateRequest() {
+
+public DateOfRequest getDateOfRequest() {
 	return dateOfRequest;
 }
 
-public void setDateRequest(DateOfRequest dateRequest) {
-	this.dateOfRequest = dateRequest;
+
+public void setDateOfRequest(DateOfRequest dateOfRequest) {
+	this.dateOfRequest = dateOfRequest;
 }
 
-public DateOfEvent getDateEvent() {
+
+public DateOfEvent getDateOfEvent() {
 	return dateOfEvent;
 }
 
-public void setDateEvent(DateOfEvent dateEvent) {
-	this.dateOfEvent = dateEvent;
+
+public void setDateOfEvent(DateOfEvent dateOfEvent) {
+	this.dateOfEvent = dateOfEvent;
 }
+
 
 public Ensemble getEnsemble() {
 	return ensemble;
 }
 
+
 public void setEnsemble(Ensemble ensemble) {
 	this.ensemble = ensemble;
 }
+
 
 public String getDescription() {
 	return description;
 }
 
+
 public void setDescription(String description) {
 	this.description = description;
 }
+
 
 public BookingStatus getBookingStatus() {
 	return bookingStatus;
 }
 
+
 public void setBookingStatus(BookingStatus bookingStatus) {
 	this.bookingStatus = bookingStatus;
 }
+
 
 public String getAfterAction() {
 	return afterAction;
 }
 
+
 public void setAfterAction(String afterAction) {
 	this.afterAction = afterAction;
 }
 
-public boolean isMoveableDate() {
+
+public Boolean getMoveableDate() {
 	return moveableDate;
 }
 
-public void setMoveableDate(boolean moveableDate) {
+
+public void setMoveableDate(Boolean moveableDate) {
 	this.moveableDate = moveableDate;
 }
 
-public int getExpectedAttendance() {
+
+public Integer getExpectedAttendance() {
 	return expectedAttendance;
 }
 
-public void setExpectedAttendance(int expectedAttendance) {
+
+public void setExpectedAttendance(Integer expectedAttendance) {
 	this.expectedAttendance = expectedAttendance;
 }
 
-public boolean isOtherUnits() {
+
+public Boolean getOtherUnits() {
 	return otherUnits;
 }
 
-public void setOtherUnits(boolean otherUnits) {
+
+public void setOtherUnits(Boolean otherUnits) {
 	this.otherUnits = otherUnits;
 }
+
 
 public String getChargesDescription() {
 	return chargesDescription;
 }
 
+
 public void setChargesDescription(String chargesDescription) {
 	this.chargesDescription = chargesDescription;
 }
+
 
 public String getFundraisingDescription() {
 	return fundraisingDescription;
 }
 
+
 public void setFundraisingDescription(String fundraisingDescription) {
 	this.fundraisingDescription = fundraisingDescription;
 }
 
-public boolean isOpenAdmission() {
+
+public Boolean getOpenAdmission() {
 	return openAdmission;
 }
 
-public void setOpenAdmission(boolean openAdmission) {
+
+public void setOpenAdmission(Boolean openAdmission) {
 	this.openAdmission = openAdmission;
 }
 
-public boolean isCivicOrganization() {
+
+public Boolean getCivicOrganization() {
 	return civicOrganization;
 }
 
-public void setCivicOrganization(boolean civicOrganization) {
+
+public void setCivicOrganization(Boolean civicOrganization) {
 	this.civicOrganization = civicOrganization;
 }
 
-public boolean isBackingOfGovernment() {
+
+public Boolean getBackingOfGovernment() {
 	return backingOfGovernment;
 }
 
-public void setBackingOfGovernment(boolean backingOfGovernment) {
+
+public void setBackingOfGovernment(Boolean backingOfGovernment) {
 	this.backingOfGovernment = backingOfGovernment;
 }
 
-public boolean isOgranizationExclusive() {
+
+public Boolean getOgranizationExclusive() {
 	return ogranizationExclusive;
 }
 
-public void setOgranizationExclusive(boolean ogranizationExclusive) {
+
+public void setOgranizationExclusive(Boolean ogranizationExclusive) {
 	this.ogranizationExclusive = ogranizationExclusive;
 }
 
-public boolean isFundMeal() {
+
+public Boolean getFundMeal() {
 	return fundMeal;
 }
 
-public void setFundMeal(boolean fundMeal) {
+
+public void setFundMeal(Boolean fundMeal) {
 	this.fundMeal = fundMeal;
 }
 
-public boolean isFundTrans() {
+
+public Boolean getFundTrans() {
 	return fundTrans;
 }
 
-public void setFundTrans(boolean fundTrans) {
+
+public void setFundTrans(Boolean fundTrans) {
 	this.fundTrans = fundTrans;
 }
 
-public boolean isProvideTelephone() {
+
+public Boolean getProvideTelephone() {
 	return provideTelephone;
 }
 
-public void setProvideTelephone(boolean provideTelephone) {
+
+public void setProvideTelephone(Boolean provideTelephone) {
 	this.provideTelephone = provideTelephone;
 }
+
 
 public CivilianRequest() {
 	super();

@@ -1,12 +1,16 @@
 package entities;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -23,7 +27,10 @@ public class PointOfContact {
 		this.password = password;
 	}
 	private String rank;
-	private String name;
+	@Column(name = "first_name")
+	private String firstName;
+	@Column(name = "last_name")
+	private String lastName;
 	private String title;
 	@ManyToOne
 	@JoinColumn(name = "address_id")
@@ -33,18 +40,40 @@ public class PointOfContact {
 	
 	@Column(name = "cell_phone")
 	private String cellPhone;
+	@Column(name = "home_phone")
+	private String homePhone;
+	public String getHomePhone() {
+		return homePhone;
+	}
+	public void setHomePhone(String homePhone) {
+		this.homePhone = homePhone;
+	}
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "pointOfContact")
+	List<MilitaryRequest> militaryRequests;
+	
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "pointOfContact")
+	List<CivilianRequest> civilianRequests;
+	
+	public List<MilitaryRequest> getMilitaryRequests() {
+		return militaryRequests;
+	}
+	public void setMilitaryRequests(List<MilitaryRequest> militaryRequests) {
+		this.militaryRequests = militaryRequests;
+	}
+	public List<CivilianRequest> getCivilianRequests() {
+		return civilianRequests;
+	}
+	public void setCivilianRequests(List<CivilianRequest> civilianRequests) {
+		this.civilianRequests = civilianRequests;
+	}
 	private String email;
 	private String fax;
 	public PointOfContact() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	@Override
-	public String toString() {
-		return "PointOfContact [id=" + id + ", rank=" + rank + ", name=" + name + ", title=" + title + ", address="
-				+ address + ", workPhone=" + workPhone + ", cellPhone=" + cellPhone + ", email=" + email + ", fax="
-				+ fax + "]";
-	}
+	
+	
 	public int getId() {
 		return id;
 	}
@@ -57,11 +86,24 @@ public class PointOfContact {
 	public void setRank(String rank) {
 		this.rank = rank;
 	}
-	public String getName() {
-		return name;
+
+	@Override
+	public String toString() {
+		return "PointOfContact [id=" + id + ", password=" + password + ", rank=" + rank + ", firstName=" + firstName
+				+ ", lastName=" + lastName + ", title=" + title + ", address=" + address + ", workPhone=" + workPhone
+				+ ", cellPhone=" + cellPhone + ", email=" + email + ", fax=" + fax + "]";
 	}
-	public void setName(String name) {
-		this.name = name;
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 	public String getTitle() {
 		return title;

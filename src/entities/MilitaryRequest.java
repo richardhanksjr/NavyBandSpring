@@ -18,13 +18,25 @@ public class MilitaryRequest {
 	private int id;   
 	private String type;
 	@Column(name = "moveable_date")
-	private boolean moveableDate;
+	private Boolean moveableDate;
 	@ManyToOne
 	@JoinColumn(name = "address_id")
 	private Address address;
 	
 	@ManyToOne
-	@JoinColumn(name = "date_of_request")
+	@JoinColumn(name = "point_of_contact_id")
+	private PointOfContact pointOfContact;
+	
+	public PointOfContact getPointOfContact() {
+		return pointOfContact;
+	}
+
+	public void setPointOfContact(PointOfContact pointOfContact) {
+		this.pointOfContact = pointOfContact;
+	}
+
+	@ManyToOne
+	@JoinColumn(name = "date_of_request_id")
 	private DateOfRequest dateOfRequest;
 	
 	@ManyToOne
@@ -52,13 +64,6 @@ public class MilitaryRequest {
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public String toString() {
-		return "MilitaryRequest [id=" + id + ", type=" + type + ", moveableDate=" + moveableDate + ", address="
-				+ address + ", dateOfRequest=" + dateOfRequest + ", dateOfEvent=" + dateOfEvent + ", ensemble="
-				+ ensemble + ", prescribedUniform=" + prescribedUniform + ", description=" + description
-				+ ", bookingStatus=" + bookingStatus + ", afterAction=" + afterAction + "]";
-	}
 
 	public int getId() {
 		return id;
@@ -76,11 +81,11 @@ public class MilitaryRequest {
 		this.type = type;
 	}
 
-	public boolean isMoveableDate() {
+	public Boolean getMoveableDate() {
 		return moveableDate;
 	}
 
-	public void setMoveableDate(boolean moveableDate) {
+	public void setMoveableDate(Boolean moveableDate) {
 		this.moveableDate = moveableDate;
 	}
 
@@ -147,5 +152,7 @@ public class MilitaryRequest {
 	public void setAfterAction(String afterAction) {
 		this.afterAction = afterAction;
 	}
+
+
 	
 }

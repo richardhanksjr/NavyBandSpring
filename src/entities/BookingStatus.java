@@ -3,6 +3,7 @@ package entities;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,10 +18,10 @@ public class BookingStatus {
 	private int id;
 	private String status;
 	
-	@OneToMany(mappedBy = "bookingStatus")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "bookingStatus")
 	List<CivilianRequest> civilianRequests;
 	
-	@OneToMany(mappedBy = "bookingStatus")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "bookingStatus")
 	List<MilitaryRequest> militaryRequests;
 
 	public BookingStatus() {

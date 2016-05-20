@@ -8,8 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -22,11 +22,11 @@ private String name;
 private String street;
 
 @Column(name = "apt_po_number")
-private int aptPoNumber;
+private String aptPoNumber;
 private String city;
 private String state;
 private String zip;
-@OneToOne
+@ManyToOne
 @JoinColumn(name = "band_id")
 private Band band;
 
@@ -47,12 +47,7 @@ public Address() {
 	// TODO Auto-generated constructor stub
 }
 
-@Override
-public String toString() {
-	return "Address [id=" + id + ", name=" + name + ", street=" + street + ", aptPoNumber=" + aptPoNumber + ", city="
-			+ city + ", state=" + state + ", zip=" + zip + ", band=" + band + ", civilianRequests=" + civilianRequests
-			+ ", pointsOfContact=" + pointsOfContact + ", militaryRequests=" + militaryRequests + "]";
-}
+
 
 public int getId() {
 	return id;
@@ -78,11 +73,11 @@ public void setStreet(String street) {
 	this.street = street;
 }
 
-public int getAptPoNumber() {
+public String getAptPoNumber() {
 	return aptPoNumber;
 }
 
-public void setAptPoNumber(int aptPoNumber) {
+public void setAptPoNumber(String aptPoNumber) {
 	this.aptPoNumber = aptPoNumber;
 }
 
